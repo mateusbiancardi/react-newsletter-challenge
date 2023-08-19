@@ -1,95 +1,58 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client'
+
+import {Flex, Text, Image, Box, Heading, Button, Container, FormControl, FormLabel, Input} from "@chakra-ui/react";
+import desktopImage from '../../assets/images/illustration-sign-up-desktop.svg'
+import iconList from '../../assets/images/icon-list.svg'
+import '@fontsource/roboto/100.css';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import '@fontsource/roboto/900.css';
+
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <Flex 
+      h="100vh" 
+      justifyContent="center" 
+      alignItems="center" 
+      bgColor='#36384e'
+    >
+      <Flex 
+        gap="6" 
+        bgColor="white" 
+        borderRadius={25} 
+        justifyContent="space-evenly"
+      >
+        <Box margin={12} w="20rem" alignSelf="center">
+          <Heading marginBottom="0.5rem" fontWeight={700} fontSize="5xl">Stay updated!</Heading>
+          <Text marginBottom="1.5rem" fontSize='sm'>Join 60,000+ product managers receiving monthly updates on:</Text>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+          <Flex marginBottom="0.5rem" gap={4}>
+            <Image src={iconList.src} alt="iconList" />
+            <Text fontSize='sm'>Product discovery and building what matters</Text>
+          </Flex>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+          <Flex marginBottom="0.5rem" gap={4}>
+            <Image src={iconList.src} alt="iconList" />
+            <Text fontSize='sm'>Measuring to ensure updates are a success</Text>
+          </Flex>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+          <Flex marginBottom="1.5rem" gap={4}>
+            <Image src={iconList.src} alt="iconList" />
+            <Text fontSize='sm'>And much more!</Text>
+          </Flex>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
+          <FormControl>
+            <FormLabel fontWeight={700} fontSize='x-small'>Email address</FormLabel>
+            <Input marginBottom="1rem" focusBorderColor="gray" size="md" placeholder='email@company.com' />
+            <Button _hover={{ bgColor: "#ff6257" }} w="100%" fontWeight={500} textColor="white" bgColor="#242742">Subscribe to monthly newsletter</Button>
+          </FormControl>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        </Box>
+        <Image margin={6} justifySelf="center" w="20rem" src={desktopImage.src} alt='DesktopImage'/>
+      </Flex>
+    </Flex>
   )
 }
