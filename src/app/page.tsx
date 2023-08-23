@@ -2,6 +2,7 @@
 
 import {Flex, Text, Image, Box, Heading, Button, Container, FormControl, FormLabel, Input} from "@chakra-ui/react";
 import desktopImage from '../../assets/images/illustration-sign-up-desktop.svg'
+import mobileImage from '../../assets/images/illustration-sign-up-mobile.svg'
 import iconList from '../../assets/images/icon-list.svg'
 import '@fontsource/roboto/100.css';
 import '@fontsource/roboto/300.css';
@@ -13,8 +14,8 @@ import '@fontsource/roboto/900.css';
 
 export default function Home() {
   return (
-    <Flex 
-      h="100vh" 
+    <Flex
+      minH="100vh" 
       justifyContent="center" 
       alignItems="center" 
       bgColor='#36384e'
@@ -24,7 +25,9 @@ export default function Home() {
         bgColor="white" 
         borderRadius={25} 
         justifyContent="space-evenly"
+        flexDirection={{base: "column", md: "row"}}
       >
+        <Image src={mobileImage.src} alt='mobileImage' display={{base: "block", md: "none"}} />
         <Box margin={12} w="20rem" alignSelf="center">
           <Heading marginBottom="0.5rem" fontWeight={700} fontSize="5xl">Stay updated!</Heading>
           <Text marginBottom="1.5rem" fontSize='sm'>Join 60,000+ product managers receiving monthly updates on:</Text>
@@ -51,7 +54,7 @@ export default function Home() {
           </FormControl>
 
         </Box>
-        <Image margin={6} justifySelf="center" w="20rem" src={desktopImage.src} alt='DesktopImage'/>
+        <Image margin={6} justifySelf="center" w="20rem" src={desktopImage.src} alt='DesktopImage' hideBelow="md" />
       </Flex>
     </Flex>
   )
