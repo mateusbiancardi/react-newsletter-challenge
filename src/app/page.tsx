@@ -9,9 +9,38 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import '@fontsource/roboto/900.css';
+import { useState, useEffect } from "react";
 
 
 export default function Home() {
+  const [email, setEmail] = useState<string>('');
+  const [valid, setValid] = useState<boolean>(true);
+  const [invalidEmail, setInvalidEmail] = useState<boolean>(false);
+
+  const handleEmail = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(event.target.value);
+  };
+
+  const handleClick = () => {
+    if (!valid) {
+      setInvalidEmail(true);
+    }
+    else {
+      setInvalidEmail(false);
+    }
+
+    console.log(valid);
+  };
+
+  useEffect(() => {
+    if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)) {
+      setValid(false);
+    }
+    else {
+      setValid(true);
+    }
+  }, [email]);
+
   return (
     <Flex 
       h="100vh" 
@@ -46,8 +75,8 @@ export default function Home() {
 
           <FormControl>
             <FormLabel fontWeight={700} fontSize='x-small'>Email address</FormLabel>
-            <Input marginBottom="1rem" focusBorderColor="gray" size="md" placeholder='email@company.com' />
-            <Button _hover={{ bgColor: "#ff6257" }} w="100%" fontWeight={500} textColor="white" bgColor="#242742">Subscribe to monthly newsletter</Button>
+            <Input marginBottom="1rem" focusBorderColor={invalidEmail ? "gray" : "red"} borderWidth={2} borderColor={invalidEmail ? "red" : "-moz-initial" } size="md" placeholder='email@company.com' onChange={handleEmail}/>
+            <Button _hover={{ bgColor: "#ff6257" }} w="100%" fontWeight={500} textColor="white" bgColor="#242742" onClick={handleClick}>Subscribe to monthly newsletter</Button>
           </FormControl>
 
         </Box>
