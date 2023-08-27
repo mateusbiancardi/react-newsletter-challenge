@@ -1,9 +1,9 @@
 'use client'
 
-import Newsletter from "@/components/newsletter/newsletter"
-import Confirmation from "@/components/confirmation/confirmation"
+import Newsletter from "@/components/newsletter"
+import Confirmation from "@/components/confirmation"
 
-export default function Home() {
+export default function Home() {  
   return (
     <>
       <Newsletter />
